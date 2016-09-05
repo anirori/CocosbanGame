@@ -12,6 +12,7 @@ var playerPosition; //マップ内のプレイやの位置(ｘ、ｙ)を保持�
 var playerSprite; //プレイヤーのスプライト
 var cratesArray = []; //配置した木箱のスプライトを配列に保持する
 
+var createFallCount = 0;
 var startTouch;
 var endTouch;
 var swipeTolerance = 10;//スワイプかを判断する閾値
@@ -151,6 +152,7 @@ switch(level[playerPosition.y+deltaY][playerPosition.x+deltaX]){
             level[playerPosition.y][playerPosition.x]+=1;
             playerSprite.setPosition(165+25*playerPosition.x,185-25*playerPosition.y);
             level[playerPosition.y+deltaY][playerPosition.x+deltaX]+=3;
+            if(level[playerPosition.y+deltaY][playerPosition.x+deltaX]==5);
             var movingCrate = cratesArray[playerPosition.y][playerPosition.x];
             movingCrate.setPosition(movingCrate.getPosition().x+25*deltaX,movingCrate.
             getPosition().y-25*deltaY);
