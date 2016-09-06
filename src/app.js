@@ -4,7 +4,7 @@ var level = [
   [1, 1, 0, 0, 0, 0, 1],
   [1, 1, 3, 0, 2, 0, 1],
   [1, 0, 0, 4, 0, 0, 1],
-  [1, 0, 3, 1, 2, 0, 1],
+  [1, 0, 3, 1, 0, 2, 1],
   [1, 0, 0, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1]
 ];
@@ -25,6 +25,14 @@ var gameScene = cc.Scene.extend({
     layer0.init();
     this.addChild(layer0);
 
+      //音楽再生エンジン
+    audioEngine = cc.audioEngine;
+    //bgm再生
+    if (!audioEngine.isMusicPlaying()) {
+    audioEngine.playMusic(res.bgm_main, true);
+  }
+    //ボリューム
+    audioEngine.setMusicVolume(audioEngine.getMusicVolume(res.bgm_main) - 0.5);
   }
 });
 
@@ -152,13 +160,20 @@ switch(level[playerPosition.y+deltaY][playerPosition.x+deltaX]){
             level[playerPosition.y][playerPosition.x]+=1;
             playerSprite.setPosition(165+25*playerPosition.x,185-25*playerPosition.y);
             level[playerPosition.y+deltaY][playerPosition.x+deltaX]+=3;
-            if(level[playerPosition.y+deltaY][playerPosition.x+deltaX]==5);
+
             var movingCrate = cratesArray[playerPosition.y][playerPosition.x];
             movingCrate.setPosition(movingCrate.getPosition().x+25*deltaX,movingCrate.
             getPosition().y-25*deltaY);
             cratesArray[playerPosition.y+deltaY][playerPosition.x+deltaX]=movingCrate;
             cratesArray[playerPosition.y][playerPosition.x]=null;
-        }
-        break;
+            }
+            if(level[playerPosition.y+deltaY][playerPosition.x+deltaX]==5){
+              createFallCount += 1;
+            }
+            if(createFallCount == 2) {
+                      cc.director.runScene(new gameover());
+                      createFallCount = 0;
+                    }
+                  break;
     }
 }
