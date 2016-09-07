@@ -25,15 +25,16 @@ var gameoverLayer = cc.Layer.extend({
     onTouchMoved: function(touch, event) {},
     onTouchEnded: function(touch, event) {
         cc.director.runScene(new gameScene());
-        level = [
-          [1, 1, 1, 1, 1, 1, 1],
-          [1, 1, 0, 0, 0, 0, 1],
-          [1, 1, 3, 0, 2, 0, 1],
-          [1, 0, 0, 4, 0, 0, 1],
-          [1, 0, 3, 1, 2, 0, 1],
-          [1, 0, 0, 1, 1, 1, 1],
-          [1, 1, 1, 1, 1, 1, 1]
-        ];
+          level = [
+              [1, 1, 1, 1, 1, 1, 1],
+              [1, 1, 0, 0, 0, 0, 1],
+              [1, 1, 3, 0, 2, 0, 1],
+              [1, 0, 0, 4, 0, 0, 1],
+              [1, 0, 3, 1, 2, 0, 1],
+              [1, 0, 0, 1, 1, 1, 1],
+              [1, 1, 1, 1, 1, 1, 1]
+            ];
+            
     },
 });
 
