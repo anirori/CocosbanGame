@@ -34,7 +34,7 @@ var gameoverLayer = cc.Layer.extend({
               [1, 0, 0, 1, 1, 1, 1],
               [1, 1, 1, 1, 1, 1, 1]
             ];
-            
+
     },
 });
 
@@ -44,7 +44,7 @@ var gameover = cc.Scene.extend({
         this._super();
 
         // 背景レイヤーをその場で作る
-        var backgroundLayer = new cc.LayerColor(new cc.Color(0, 200, 140, 128));
+        var backgroundLayer = new cc.LayerColor(new cc.Color(100, 140, 220, 128));
         this.addChild(backgroundLayer);
         //ラベルとタップイベント取得
         var layer3 = new gameoverLayer();
