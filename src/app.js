@@ -1,4 +1,3 @@
-
 var size;
 var level = [
   [1, 1, 1, 1, 1, 1, 1],
